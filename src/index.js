@@ -24,13 +24,13 @@ async function main () {
     const gitlabCommitsCount = gitlabCalendar[day]
     const githubCommitsCount = githubCalendar[day] || 0
 
-    let diff = !!process.env.INIT ? gitlabCommitsCount : gitlabCommitsCount - githubCommitsCount
+    let diff = gitlabCommitsCount - githubCommitsCount
+    const dayTimestamp = Math.floor(new Date(`${day} 12:00`).getTime() / 1000)
     if (diff > 0) {
       whereChangesMade = true
       console.log(`💫 Generating ${diff} commits for day ${day}`)
-      const dayTimestamp = Math.floor(new Date(`${day} 12:00`).getTime() / 1000)
     }
-    
+
     while (diff > 0) {
       await gitHelper.generateCommit({
         username: process.env.GIT_USERNAME,
