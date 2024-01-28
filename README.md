@@ -20,3 +20,6 @@ Merge your Gitlab's public contributions calendar to your Github contributions c
 ## How to remove
 
 If you no longer want to use this, just remove both repositories from your account. Please note that it will remove the data from your calendar as well.
+
+## Stuff
+- Adding a commit to trigger actions
